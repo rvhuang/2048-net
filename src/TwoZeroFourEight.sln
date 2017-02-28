@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TwoZeroFourEight", "TwoZeroFourEight\TwoZeroFourEight.xproj", "{D42802E6-B9E3-4DD5-A333-0F96A6604377}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TwoZeroFourEight.Test", "TwoZeroFourEight.Test\TwoZeroFourEight.Test.xproj", "{44482D1F-CD32-45C4-8196-5FC5A9AAC757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D42802E6-B9E3-4DD5-A333-0F96A6604377}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D42802E6-B9E3-4DD5-A333-0F96A6604377}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D42802E6-B9E3-4DD5-A333-0F96A6604377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44482D1F-CD32-45C4-8196-5FC5A9AAC757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44482D1F-CD32-45C4-8196-5FC5A9AAC757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44482D1F-CD32-45C4-8196-5FC5A9AAC757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44482D1F-CD32-45C4-8196-5FC5A9AAC757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
