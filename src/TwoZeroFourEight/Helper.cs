@@ -1,13 +1,98 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace TwoZeroFourEight
 {
     public static class Helper
     {
+        public const int BoardSize = 4;
+     
+        private static readonly Random rand = new Random(Environment.TickCount);
+
+        #region Main
+
+        public static int[][] InitalizeArray()
+        {
+            var board = Enumerable.Repeat(BoardSize, BoardSize).Select(size => new int[size]).ToArray();
+
+            PutNumberOnArray(board, 2);
+            PutNumberOnArray(board, 2);
+
+            return board;
+        }
+
+        public static Position PutNumberOnArray(int[][] board, int? number = null)
+        {
+            if (CountPlaces(board) == BoardSize * BoardSize) // no empty place to put new number
+                return Position.Empty;
+
+            var pos = new Position(rand.Next(BoardSize), rand.Next(BoardSize));
+
+            while (board[pos.Row][pos.Col] != 0)
+                pos = new Position(rand.Next(BoardSize), rand.Next(BoardSize));
+
+            if (number == null)
+                number = rand.Next(4) != 1 ? 2 : 4; // 3/4 chance to get 2, 1/4 chance to get 4
+
+            board[pos.Row][pos.Col] = number.Value;
+
+            return pos;
+        }
+
+        #endregion
+
         #region Moves
+
+        public static IEnumerable<MoveDirection> GetNextAvailableMoves(int[][] current)
+        {
+            var copied = Clone(current); // create a copy
+            var states = new bool[BoardSize];
+
+            MoveUp(copied, states);
+
+            if (states.Contains(true)) // if any col/row is modified.
+                yield return MoveDirection.Up;
+
+            MoveDown(copied, states);
+
+            if (states.Contains(true)) // if any col/row is modified.
+                yield return MoveDirection.Down;
+
+            MoveLeft(copied, states);
+
+            if (states.Contains(true)) // if any col/row is modified.
+                yield return MoveDirection.Up;
+
+            MoveRight(copied, states);
+
+            if (states.Contains(true)) // if any col/row is modified.
+                yield return MoveDirection.Up;
+        }
+
+        public static void MoveUp(int[][] array, bool[] rowStates)
+        {
+            for (var col = 0; col < BoardSize; col++)
+                rowStates[col] = MoveUp(array, col);
+        }
+
+        public static void MoveDown(int[][] array, bool[] rowStates)
+        {
+            for (var col = 0; col < BoardSize; col++)
+                rowStates[col] = MoveDown(array, col);
+        }
+
+        public static void MoveLeft(int[][] array, bool[] colStates)
+        {
+            for (var row = 0; row < BoardSize; row++)
+                colStates[row] = MoveLeft(array[row]);
+        }
+
+        public static void MoveRight(int[][] array, bool[] colStates)
+        {
+            for (var row = 0; row < BoardSize; row++)
+                colStates[row] = MoveRight(array[row]);
+        }
 
         public static bool MoveUp(int[][] array, int col)
         {
@@ -135,5 +220,16 @@ namespace TwoZeroFourEight
         }
 
         #endregion
+    }
+
+    public enum MoveDirection
+    {
+        Up,
+
+        Down,
+
+        Left,
+
+        Right,
     }
 }
