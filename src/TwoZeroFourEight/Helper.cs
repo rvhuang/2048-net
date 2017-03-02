@@ -121,12 +121,12 @@ namespace TwoZeroFourEight
                     col = y; // remember current col
                     continue;
                 }
-                if (col != -1 && row[col] != row[y])
+                if (row[col] != row[y])
                 {
                     col = y; // update
                     continue;
                 }
-                if (col != -1 && row[col] == row[y])
+                if (row[col] == row[y])
                 {
                     row[col] += row[y]; // merge same numbers
                     row[y] = 0;
@@ -166,12 +166,12 @@ namespace TwoZeroFourEight
                     col = y; // remember current col
                     continue;
                 }
-                if (col != -1 && row[col] != row[y])
+                if (row[col] != row[y])
                 {
                     col = y; // update
                     continue;
                 }
-                if (col != -1 && row[col] == row[y])
+                if (row[col] == row[y])
                 {
                     row[col] += row[y]; // merge same numbers
                     row[y] = 0;

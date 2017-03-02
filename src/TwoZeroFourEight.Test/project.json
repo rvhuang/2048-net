@@ -3,7 +3,8 @@
     "compile": {
       "includeFiles": [
         "../TwoZeroFourEight/Helper.cs",
-        "../TwoZeroFourEight/ColumnWrapper.cs"
+        "../TwoZeroFourEight/ColumnWrapper.cs",
+        "../TwoZeroFourEight/Position.cs"
       ]
     }
   },

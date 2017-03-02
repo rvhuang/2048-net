@@ -29,7 +29,7 @@ namespace TwoZeroFourEight.Test
         [Fact(DisplayName = nameof(MoveLeftTestCase2))]
         public void MoveLeftTestCase2()
         {
-            var input = new int[] { 2, 0, 0, 2 };
+            var input = new int[] { 0, 2, 0, 2 };
             var expected = new int[] { 4, 0, 0, 0 };
 
             var modified = Helper.MoveLeft(input);

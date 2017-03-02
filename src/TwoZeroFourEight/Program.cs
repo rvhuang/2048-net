@@ -35,7 +35,7 @@ namespace TwoZeroFourEight
                 Print(current, previous, newNumPos);
 
                 // if no new number is added
-                if (newNumPos.IsEmpty && !Helper.GetNextAvailableMoves(current).Any()) 
+                if (newNumPos.IsEmpty && !Helper.GetNextAvailableMoves(current).Any())
                 {
                     Console.WriteLine("Game Over");
                     break;
