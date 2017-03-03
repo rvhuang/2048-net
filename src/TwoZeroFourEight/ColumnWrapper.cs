@@ -38,7 +38,7 @@ namespace TwoZeroFourEight
 
         public bool Contains(T item)
         {
-            return Enumerable.Range(0, this.array.Length).Select(i => this.array[i][col]).Contains(item);
+            return this.array.Select(row => row[col]).Contains(item);
         }
 
         public int IndexOf(T item)
@@ -59,7 +59,7 @@ namespace TwoZeroFourEight
 
         public IEnumerator<T> GetEnumerator()
         {
-            return Enumerable.Range(0, this.array.Length).Select(i => this.array[i][col]).GetEnumerator();
+            return this.array.Select(row => row[col]).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
